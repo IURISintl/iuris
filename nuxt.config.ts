@@ -8,4 +8,11 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        activeClass: "route-link-active",
+      },
+    },
+  },
 });
