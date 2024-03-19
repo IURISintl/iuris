@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 md:p-6 bg-black md:flex md:justify-between md:items-center z-20">
+  <div class="p-4 md:p-6 bg-black md:flex md:justify-between md:items-center relative z-10">
     <div class="flex justify-between items-center md:block">
       <NuxtLink href="/"><img src="~/assets/image/iuris-white.png" alt="iuris logo" class="h-14" /></NuxtLink>
       <div class="text-white block md:hidden cursor-pointer" @click="toggleNavbar">
@@ -11,7 +11,7 @@
     <AppNavbarMenu class="hidden md:block"></AppNavbarMenu>
     <ButtonsAppNavbarBtn class="hidden md:block">About Us</ButtonsAppNavbarBtn>
   </div>
-  <div class="bg-black md:hidden transition-all duration-500" :class="{ block: isOpen, hidden: !isOpen }">
+  <div class="bg-black md:hidden transition-all duration-500" :class="{ open: isOpen, close: !isOpen }">
     <AppNavbarMenu></AppNavbarMenu>
     <ButtonsAppNavbarBtn class="pt-4 pb-6 mt-2">About Us</ButtonsAppNavbarBtn>
   </div>
@@ -29,6 +29,11 @@ export default {
       this.isOpen = !this.isOpen;
     },
   },
+  watch: {
+    $route() {
+      this.isOpen = false;
+    },
+  },
 };
 </script>
 
@@ -37,6 +42,6 @@ export default {
   display: block;
 }
 .close {
-  display: hidden;
+  margin-top: -320px;
 }
 </style>
