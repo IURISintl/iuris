@@ -1,5 +1,5 @@
 <template>
-  <div>this is lawFirm page</div>
+  <div>this is lawFirm page.</div>
 </template>
 
 <script>
